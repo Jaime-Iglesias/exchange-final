@@ -1,0 +1,33 @@
+{
+  "name": "exchange-final",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx mocha --exit --recursive",
+    "compile": "rm -rf ./build && truffle compile",
+    "lint": "solhint contracts/**/*.sol"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jaime-Iglesias/exchange-final.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jaime-Iglesias/exchange-final/issues"
+  },
+  "homepage": "https://github.com/Jaime-Iglesias/exchange-final#readme",
+  "devDependencies": {
+    "@openzeppelin/test-environment": "^0.1.4",
+    "@openzeppelin/test-helpers": "^0.5.5",
+    "chai": "^4.2.0",
+    "mocha": "^7.1.1",
+    "solc": "^0.5.17",
+    "solhint": "^3.0.0",
+    "solhint-plugin-cmf-rules": "^1.0.2"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^2.5.0"
+  }
+}
