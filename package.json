@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx mocha --exit --recursive",
+    "test": "npx mocha --exit --recursive --timeout 10000",
     "compile": "rm -rf ./build && truffle compile",
-    "lint": "solhint contracts/**/*.sol"
+    "lint": "solhint contracts/**/*.sol",
+    "coverage": "truffle run coverage"
   },
   "repository": {
     "type": "git",
@@ -25,7 +26,8 @@
     "mocha": "^7.1.1",
     "solc": "^0.5.17",
     "solhint": "^3.0.0",
-    "solhint-plugin-cmf-rules": "^1.0.2"
+    "solhint-plugin-cmf-rules": "^1.0.2",
+    "solidity-coverage": "^0.7.9"
   },
   "dependencies": {
     "@openzeppelin/contracts": "^2.5.0"
