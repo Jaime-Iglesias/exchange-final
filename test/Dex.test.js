@@ -1,16 +1,14 @@
 const { verifyExpectedBalance } = require('./utils/utils.js')
 
-const { accounts, contract, web3 } = require('@openzeppelin/test-environment');
-
 const { expect } = require('chai');
 
 const { BN, ether, balance, constants, expectRevert, expectEvent, time } = require('@openzeppelin/test-helpers');
 const { ZERO_ADDRESS } = constants;
 
-const Token = contract.fromArtifact('ERC20');
-const Dex = contract.fromArtifact('Dex');
+const Token = artifacts.require('ERC20');
+const Dex = artifacts.require('Dex');
 
-describe('Dex', function () {
+contract('Dex', function (accounts) {
     const [initialHolder, owner, user, user2] = accounts;
 
     // to deploy an ERC20 token

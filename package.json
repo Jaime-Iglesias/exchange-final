@@ -4,30 +4,29 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx mocha --exit --recursive --timeout 10000",
-    "compile": "rm -rf ./build && truffle compile",
-    "lint": "solhint contracts/**/*.sol",
-    "coverage": "truffle run coverage"
+    "test": "npx truffle test",
+    "compile": "rm -rf ./build && npx truffle compile",
+    "lint": "npx solhint contracts/**/*.sol",
+    "coverage": "npx truffle run coverage"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Jaime-Iglesias/exchange-final.git"
   },
-  "author": "",
+  "author": "Jaime Iglesias",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Jaime-Iglesias/exchange-final/issues"
   },
   "homepage": "https://github.com/Jaime-Iglesias/exchange-final#readme",
   "devDependencies": {
-    "@openzeppelin/test-environment": "^0.1.4",
     "@openzeppelin/test-helpers": "^0.5.5",
     "chai": "^4.2.0",
-    "mocha": "^7.1.1",
     "solc": "^0.5.17",
     "solhint": "^3.0.0",
-    "solhint-plugin-cmf-rules": "^1.0.2",
-    "solidity-coverage": "^0.7.9"
+    "solhint-plugin-cmf-rules-stable": "^1.1.0",
+    "solidity-coverage": "^0.7.9",
+    "truffle": "^5.1.35"
   },
   "dependencies": {
     "@openzeppelin/contracts": "^2.5.0"
