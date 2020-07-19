@@ -453,7 +453,7 @@ contract('Dex', function (accounts) {
                                 haveAmount,
                                 wantToken,
                                 wantAmount,
-                                { from : sender, value : haveAmount } 
+                                { from : sender, value : haveAmount.add(new BN('1')) } 
                             );
 
                             const nonce = new BN('1');
@@ -1407,6 +1407,17 @@ contract('Dex', function (accounts) {
                                 });
 
                                 it('updates the order filler balance', async function () {
+                                    const orderInfo = await this.dex.getOrderInfo(orderHash);
+
+                                    await verifyExpectedBalance(this.dex, orderInfo.haveToken, sender, new BN('0'), new BN('0'));
+                                    await verifyExpectedBalance(this.dex, orderInfo.wantToken, sender, new BN('0'), fillAmount);
+
+                                    await this.dex.fillOrder(orderHash, fillAmount, { from : sender });
+
+                                    const amountToGet = ((haveAmount).mul(fillAmount)).div(wantAmount);
+
+                                    await verifyExpectedBalance(this.dex, orderInfo.haveToken, sender, new BN('0'), amountToGet);
+                                    await verifyExpectedBalance(this.dex, orderInfo.wantToken, sender, new BN('0'), new BN('0'));
                                 });
 
                                 it('emits an OrderFilled event', async function () {
@@ -1419,7 +1430,7 @@ contract('Dex', function (accounts) {
                                     );
                                 });
                             });
-                        });        
+                        });
                     });
                 });
             });
