@@ -62,6 +62,8 @@ contract Dex is Ownable {
         // address(0) represents Ether.
         _validTokens[address(0)] = true;
         _validTokensArray.push(address(0));
+        
+        emit TokenAdded(address(0));
     }
 
     /**
