@@ -534,10 +534,22 @@ contract('Dex', function (accounts) {
                             const block = await time.latestBlock();
                             const blockNumber = new BN(block).add(blockExpiration);
 
+                            const orderHash = web3.utils.soliditySha3(
+                                haveToken,
+                                haveAmount,
+                                wantToken,
+                                wantAmount,
+                                sender,
+                                nonce,
+                                blockNumber
+                            );
+
                             expectEvent(
                                 receipt, 
                                 'OrderCreated', 
-                                { haveToken : haveToken, 
+                                { 
+                                    orderHash : orderHash,
+                                    haveToken : haveToken, 
                                     haveAmount : haveAmount, 
                                     wantToken: wantToken, 
                                     wantAmount : wantAmount, 
@@ -649,10 +661,22 @@ contract('Dex', function (accounts) {
                         const block = await time.latestBlock();
                         const blockNumber = new BN(block).add(blockExpiration);
 
+                        const orderHash = web3.utils.soliditySha3(
+                            haveToken,
+                            haveAmount,
+                            wantToken,
+                            wantAmount,
+                            sender,
+                            nonce,
+                            blockNumber
+                        );
+
                         expectEvent(
                             receipt, 
                             'OrderCreated', 
-                            { haveToken : haveToken, 
+                            { 
+                                orderHash : orderHash,
+                                haveToken : haveToken, 
                                 haveAmount : haveAmount, 
                                 wantToken: wantToken, 
                                 wantAmount : wantAmount, 
@@ -816,11 +840,23 @@ contract('Dex', function (accounts) {
                                 const nonce = new BN('1');
                                 const block = await time.latestBlock();
                                 const blockNumber = new BN(block).add(blockExpiration);
+    
+                                const orderHash = web3.utils.soliditySha3(
+                                    haveToken,
+                                    haveAmount,
+                                    wantToken,
+                                    wantAmount,
+                                    sender,
+                                    nonce,
+                                    blockNumber
+                                );
         
                                 expectEvent(
                                     receipt, 
                                     'OrderCreated', 
-                                    { haveToken : haveToken, 
+                                    { 
+                                        orderHash : orderHash,
+                                        haveToken : haveToken, 
                                         haveAmount : haveAmount, 
                                         wantToken: wantToken, 
                                         wantAmount : wantAmount, 
@@ -935,10 +971,22 @@ contract('Dex', function (accounts) {
                         const block = await time.latestBlock();
                         const blockNumber = new BN(block).add(blockExpiration);
 
+                        const orderHash = web3.utils.soliditySha3(
+                            haveToken,
+                            haveAmount,
+                            wantToken,
+                            wantAmount,
+                            sender,
+                            nonce,
+                            blockNumber
+                        );
+
                         expectEvent(
                             receipt, 
                             'OrderCreated', 
-                            { haveToken : haveToken, 
+                            { 
+                                orderHash : orderHash,
+                                haveToken : haveToken, 
                                 haveAmount : haveAmount, 
                                 wantToken: wantToken, 
                                 wantAmount : wantAmount, 

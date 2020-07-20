@@ -214,6 +214,7 @@ contract Dex is Ownable {
 
         // emit event
         emit OrderCreated(
+            orderHash,
             haveToken, 
             haveAmount, 
             wantToken, 
@@ -574,6 +575,7 @@ contract Dex is Ownable {
     event TokensWithdrawed(address withdrawer, address token, uint256 amount);
 
     event OrderCreated(
+        bytes32 orderHash,
         address haveToken,
         uint256 haveAmount,
         address wantToken,
