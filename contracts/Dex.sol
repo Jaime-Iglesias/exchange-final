@@ -317,6 +317,7 @@ contract Dex is Ownable {
         // emit event
         emit OrderFilled(
             orderHash,
+            msg.sender,
             amountToFill
         );
     }
@@ -472,6 +473,8 @@ contract Dex is Ownable {
         Balance storage balance = _userBalanceOf(token, msg.sender);
         balance.available = balance.available.add(amountNeeded);
 
+        emit TokensDeposited(msg.sender, token, amountNeeded);
+
         return true;
     }
 
@@ -587,5 +590,5 @@ contract Dex is Ownable {
 
     event OrderCanceled(bytes32 orderHash);
 
-    event OrderFilled(bytes32 orderHash, uint256 amount);
+    event OrderFilled(bytes32 orderHash, address filler, uint256 amount);
 }

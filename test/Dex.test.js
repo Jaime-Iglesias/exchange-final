@@ -1415,7 +1415,7 @@ contract('Dex', function (accounts) {
                                         expectEvent(
                                             receipt,
                                             'OrderFilled',
-                                            { orderHash : orderHash, amount : fillAmount }
+                                            { orderHash : orderHash, filler : sender, amount : fillAmount }
                                         );
                                     });
                                 });
@@ -1474,7 +1474,7 @@ contract('Dex', function (accounts) {
                                     expectEvent(
                                         receipt,
                                         'OrderFilled',
-                                        { orderHash : orderHash, amount : fillAmount }
+                                        { orderHash : orderHash, filler : sender, amount : fillAmount }
                                     );
                                 });
                             });
