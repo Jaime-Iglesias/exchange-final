@@ -26,7 +26,7 @@
     "solhint": "^3.0.0",
     "solhint-plugin-cmf-rules-stable": "^1.1.0",
     "solidity-coverage": "^0.7.9",
-    "truffle": "^5.1.35"
+    "truffle": "^5.7.1"
   },
   "dependencies": {
     "@openzeppelin/contracts": "^2.5.0"
